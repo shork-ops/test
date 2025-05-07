@@ -1,12 +1,14 @@
 from skimage import io
 import matplotlib.pyplot as plt
 from skimage.transform import resize, rescale
+from skimage.color import gray2rgb
 
-# Новый URL изображения (с прямым доступом)
 url = "https://img3.procvetok.com/crop/w500h500/32/a0/32a074858cfe875cb16d47a91e7d3c93.jpg"
 image = io.imread(url)
+
 # Масштабирование (изменение размера в 50% от оригинала)
-scaled_image = rescale(image, 0.5, anti_aliasing=True)
+scaled_image = rescale(image, 0.5, anti_aliasing=True, channel_axis=-1)
+
 
 
 # Создаём 2 подграфика для отображения оригинального и изменённого изображений
